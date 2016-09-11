@@ -1,0 +1,70 @@
+extends layout
+
+block content
+  div.row
+    div.col-sm-12
+      h1(style="color: white;font-size:7em;", class="wow slideInRight") View Your CV
+      <hr>
+    div.col-sm-12
+      if cv && cv !== false
+        form(id="form", name="profile-form", method="post", action="/downloadpdf")
+          div.well.cv-preview
+            div.user-details.text-right
+              each val, index in cv.profile
+                p= val.forename + ' ' + val.surname
+                p(style='white-space:pre;')= val.address
+                p= val.country
+                p= val.phone
+                p= val.email
+            div.about-details
+              h4 About me 
+                span.fa.fa-pencil
+              each val, index in cv.about
+                p= val.aboutContent
+                p= 'Driving License: ' + val.workLicense
+                p= 'Work Permit: ' + val.driversLicense
+            div.qualification-detail
+              h4 Qualifications 
+                span.fa.fa-pencil
+              each val, index in cv.qualification
+                -ob= JSON.parse(val.qualifications)
+                  each path, count in ob
+                    ul
+                      li
+                        b= path.subject + ': \t'
+                        !{path.grade}
+            div.experience-detail
+              h4 Work Experience 
+                span.fa.fa-pencil
+              each val, index in cv.experience
+                p= val.title
+                p= val.content
+                p= new Date(val.dateStart).toDateString()
+                p= new Date(val.dateEnd).toDateString()
+                p= val.voluntary
+            div.project-detail
+              h4 Examples 
+                span.fa.fa-pencil
+              each val, index in cv.project
+                p= val.title
+                p= val.description
+            div.reference-detail
+              h4 References 
+                span.fa.fa-pencil
+              each val, index in cv.reference
+                p= val.firstName + ': ' + val.firstContact
+                p= val.secondName + ': ' + val.secondContact
+      else 
+        p Please finish your CV.
+  br
+  div.row
+    div.col-sm-12
+      p 
+  div(class="row continue")
+    .div
+      input(type="submit", value="Download", class="btn btn-default btn-submit")
+  script(type='text/javascript').
+    $('.continue').click(function(){
+        $('#overlay').modal({backdrop: 'static'});
+        $('#form').submit();
+    });

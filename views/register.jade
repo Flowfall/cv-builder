@@ -1,0 +1,30 @@
+extends layout
+
+block content 
+    div.row
+        div.col-sm-12
+            h1.text-right Registration
+            h3.text-right Already have an account? <a href="login"><span style="color: #FC4A1A">Login</span></a>
+    hr
+    div.row
+        div.col-sm-2
+        div.col-sm-8
+            if message.length > 0
+                div(class="alert alert-danger")
+                    | !{message}
+            form(id="form", name="register-form", method="post", action="/register")
+                div.form-group
+                    label(for="username") Username
+                    input(type="text", name="username", class="form-control", placeholder="Enter a username")
+                div.form-group
+                    label(for="password") Password
+                    input(type="password", name="password", class="form-control", placeholder="Enter secure password")
+        div.col-sm-2
+    div(class="row continue")
+        .div
+        input(type="submit", value="Register", class="btn btn-default btn-submit", id="submit")
+    
+    script(type='text/javascript').
+        $('.continue').click(function(){
+            $('#form').submit();
+        });

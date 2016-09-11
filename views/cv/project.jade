@@ -1,0 +1,46 @@
+extends ../layout
+
+block content 
+    div.row
+        div.col-sm-12
+            h1.text-right Time to shine!
+            h3.text-right prove you can walk the walk and submit demos
+    hr
+    div.row
+        div.col-sm-2
+        div.col-sm-8
+            form(id="form" name="register-form", method="post", action="/cv/project")
+                div.form-group
+                    label(for="title") Project Title
+                    input(type="text", name="title", class="form-control", placeholder="Enter project title")
+                div.form-group
+                    label(for="description") Project Description
+                    input(type="text", name="description", class="form-control", placeholder="Enter project description")
+                div.form-group
+                    //label(for="title") Project File
+                    //br
+                    //label(class="btn btn-warning btn-file") Select a File
+                        //input(type="file", name="file", class="form-control", style="display: none")
+                    //br
+                div.form-group
+                    label(for="link") Link
+                    input(type="text", name="link", class="form-control", placeholder="Enter link to your project")
+                //div.form-group
+                   //label(for="title") Thumbnail Image
+                    //br
+                    //label(class="btn btn-warning btn-file") Select a File
+                        //input(type="file", name="thumb", class="form-control", style="display: none")
+                    //br
+                div.form-group
+                    label(for="date") Date
+                    input(type="date", name="date", class="form-control", placeholder="Date")
+        div.col-sm-2
+    div(class="row continue")
+         .div
+            input(type="submit", value="Next", class="btn btn-default btn-submit")
+            span(id="stepcounter" class="small") !{step}/5
+    script(type='text/javascript').
+        $('.continue').click(function(){
+            $('#overlay').modal({backdrop: 'static'});
+            $('#form').submit();
+        });

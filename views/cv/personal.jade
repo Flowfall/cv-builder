@@ -1,0 +1,41 @@
+extends ../layout
+
+block content 
+    div.row
+        div.col-sm-12
+            h1.text-right Make sure you are contactable!
+            h3.text-right If you get this wrong, you are pretty much <span style="color: #FC4A1A">screwed.</span>
+    hr
+    div.row
+        div.col-sm-2
+        div.col-sm-8
+            form(name="register-form", method="post", action="/register")
+                div.form-group
+                    label(for="forename") Forename
+                    input(type="text", name="forename", class="form-control", placeholder="Enter your firstname")
+                div.form-group
+                    label(for="surname") Surname
+                    input(type="text", name="surname", class="form-control", placeholder="Enter your lastname")
+                div.form-group
+                    label(for="email") Email
+                    input(type="email", name="email", class="form-control", placeholder="Enter your email")
+                div.form-group
+                    label(for="email") Contact Number
+                    input(type="phone", name="phone", class="form-control", placeholder="Enter a phone number")
+                div.form-group
+                    label(for="address") Address
+                    textarea(rows="3" name="address", class="form-control" placeholder="Enter your address")
+                div.form-group
+                    label(for="country") Country
+                    input(type="text", name="country", class="form-control", placeholder="Select a Country")
+                //div
+                    input(type="submit", value="Register", class="btn btn-default")
+        div.col-sm-2
+    div(class="row continue")
+         .div
+            input(type="submit", value="Next", class="btn btn-default btn-submit")
+
+    script(type='text/javascript').
+        $('.continue').click(function(){
+            location = 'about';
+        });

@@ -1,0 +1,37 @@
+extends layout
+
+block content 
+    div.row
+        div.col-sm-12
+            h1.text-right Profile
+            h3.text-right Review your account details
+    hr
+    div.row
+        div.col-sm-12
+            form(id="form", name="profile-form", method="post", action="/profile")
+                div.form-group
+                    label(for="forename") Forename
+                    input(type="text", name="forename", class="form-control", placeholder="Enter your first name" value=profile.forename)
+                div.form-group
+                    label(for="surname") Surname
+                    input(type="text", name="surname", class="form-control", placeholder="Enter your last name" value=profile.surname)
+                div.form-group
+                    label(for="email") Email
+                    input(type="email", name="email", class="form-control", placeholder="Enter your email" value=profile.email)
+                div.form-group
+                    label(for="email") Contact Number
+                    input(type="phone", name="phone", class="form-control", placeholder="Enter your phone number" value=profile.number)
+                div.form-group
+                    label(for="address") Address
+                    textarea(rows="3" name="address", class="form-control", placeholder="Enter your address" value=profile.address)
+                div.form-group
+                    label(for="country") Country
+                    input(type="text", name="country", class="form-control", placeholder="Select a Country" value=profile.country)
+    div(class="row continue")
+        .div
+            input(type="submit", value="Update", class="btn btn-default btn-submit", id="submit")
+    script(type='text/javascript').
+        $('.continue').click(function(){
+            $('#overlay').modal({backdrop: 'static'});
+            $('#form').submit();
+        });

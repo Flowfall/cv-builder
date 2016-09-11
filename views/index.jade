@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  div.row
+    div.col-sm-12
+      h1(style="color: white;font-size:7em;", class="wow slideInDown") Ay'up!
+      br
+      h2(style="color: white;font-size:4em;", class="wow slideInLeft", data-wow-duration="1s") I will generate your Résumé, give you advice and a score
+      h3(style="color: white;font-size:2em;", class="wow slideInRight", data-wow-duration="2s") You don't have to pay a tuppence, honestly.
+  br
+  div.row
+    div.col-sm-12
+      div.startcv
+        a(href="/cv/about")
+          p Create
+  div.row
+    div.col-sm-12
+      div.searchcv
+        a(href="/cv/search")
+          p Search

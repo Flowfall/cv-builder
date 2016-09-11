@@ -1,0 +1,40 @@
+extends ../layout
+
+block content 
+    div.row
+        div.col-sm-12
+            h1.text-right Been through the wars?
+            h3.text-right promote yourself, be positive, don't lie
+    hr
+    div.row
+        div.col-sm-2
+        div.col-sm-8
+            form(id="form",name="register-form", method="post", action="/cv/experience")
+                div.form-group
+                    label(for="title") Title
+                    input(type="text", name="title", class="form-control", placeholder="Your experience title")
+                div.form-group
+                    label(for="content") Description
+                    textarea(rows="6", name="content", class="form-control", placeholder="Describe your experience")
+                div.form-group
+                    label(for="dateStart") Start Date
+                    input(type="date", name="dateStart", class="form-control", placeholder="Enter the start date")
+                div.form-group
+                    label(for="dateEnd") End Date
+                    input(type="date", name="dateEnd", class="form-control", placeholder="Enter the end date")
+                div.form-group
+                    label(class="btn btn-warning")
+                        input(type="checkbox" name="voluntary" autocomplete="off")
+                        |  &nbsp; Voluntary Experience
+                div.form-group
+                    //button(type="button" id="addExperience" data-loading-text="Saving..." class="btn btn-success pull-right" autocomplete="off") Add Experience
+        div.col-sm-2
+    div(class="row continue")
+         .div
+            input(type="submit", value="Next", class="btn btn-default btn-submit")
+            span(id="stepcounter" class="small") !{step}/5
+    script(type='text/javascript').
+        $('.continue').click(function(){
+            $('#overlay').modal({backdrop: 'static'});
+            $('#form').submit();
+        });

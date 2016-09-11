@@ -1,0 +1,33 @@
+extends ../layout
+
+block content 
+    div.row
+        div.col-sm-12
+            h1.text-right Tell me about yourself
+            h3.text-right Try not to bore me. Sound passionate, relate it to the job.
+    hr
+    div.row
+        div.col-sm-2
+        div.col-sm-8
+            form(id="form", name="about-form", method="post", action="/cv/about")
+                div.form-group
+                    label(for="content") About Yourself
+                    textarea(rows="6", name="content", class="form-control", placeholder="Talk about yourself here, hobbies, interests.\nhint: Ceo's usually like running and cycling.")
+                div.form-group 
+                    label(class="btn btn-warning")
+                        input(type="checkbox" name="driver" autocomplete="off")
+                        |  &nbsp;I have a Drivers License
+                div.form-group
+                    label(class="btn btn-warning")
+                        input(type="checkbox" name="permit" autocomplete="off")
+                        |  &nbsp;I have a Work Permit
+        div.col-sm-2
+    div(class="row continue")
+         .div
+            input(type="submit", value="Next", class="btn btn-default btn-submit")
+            span(id="stepcounter" class="small") !{step}/5
+    script(type='text/javascript').
+        $('.continue').click(function(){
+            $('#overlay').modal({backdrop: 'static'});
+            $('#form').submit();
+        });

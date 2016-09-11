@@ -1,0 +1,149 @@
+html,body {
+  height: 100%; 
+  margin: 0 auto;
+  padding-top: 0px; 
+}
+body .container {
+  background-color: #4ABDAC;
+  width: 100%;
+}
+body {
+  background-color: #F7B733!important;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+body h1,body h2,body h3,body h4,body h5,body h6 {
+  color: #FFFFFF;
+}
+
+body .cv-preview h1,body .cv-preview h2,
+body .cv-preview h3,body .cv-preview h4,
+body .cv-preview h5,body .cv-preview h6 {
+  color: #222222;
+}
+
+body a {
+  color: #FFFFFF;
+}
+
+body a:hover {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+body a:visited {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.startcv:hover,
+.searchcv:hover {
+  cursor: pointer;
+}
+.startcv {
+  color: #FFFFFF;
+  font-size: 2em;
+  text-align: center;
+  background-color: #FC4A1A;
+  margin: 50px 0px;
+}
+
+.searchcv {
+  color: #222222;
+  font-size: 2em;
+  text-align: center;
+  background-color: #F7B733;
+  margin: 25px 0px 30px 0px;
+}
+
+.startcv p,
+.searchcv p {
+  padding: 50px;
+}
+
+body .navbar-inverse {
+  background-color: #222222;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0px;
+}
+
+.navbar-inverse .navbar-header a{
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 3em;
+  padding: 0px 10px;
+}
+
+.navbar-inverse .navbar-header a:hover{
+  color: #F7B733;
+  cursor: pointer;
+}
+
+body label {
+    color: #F7B733;
+    font-size: 1.5em;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    padding: 0px 0px 0px 10px;
+}
+
+body .btn-submit {
+  background: #F7B733;
+  color: white;
+  border: none;
+  border-radius: 0;
+  text-align: right;
+  font-size: 1.5em;
+}
+
+.continue {
+  background: #F7B733;
+  text-align: right;
+  padding: 40px 10px 30px 0px;
+  font-size: 3em;
+  -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 101%);
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 101%);
+  padding-bottom: 30%;
+  /*height: 100%;*/
+}
+
+.continue:hover,
+.continue:hover .btn-default {
+  background: #FC4A1A;
+  color: white;
+  cursor: pointer;
+}
+ 
+body .btn-default:active,
+body .btn-default:focus,
+body .btn-default:hover {
+  border: none;
+  background: none!important;
+  color: black;
+}
+
+.yellowbg {
+  background-color: #FC4A1A!important;
+}
+
+#stepcounter {
+  color: #222222;
+  position: relative;
+  top: 30px;
+  right: 30px;
+}
+
+.overlaycontent {
+  color: white;
+  display: block;
+  font-size: 66px;
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  text-align: center;
+}
+
+.cv-preview div {
+  border-bottom: 1px solid #e2e2e2;
+} 

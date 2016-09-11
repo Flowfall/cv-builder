@@ -1,0 +1,41 @@
+extends ../layout
+
+block content 
+    div.row
+        div.col-sm-12
+            h1.text-right Who ya gonna' call?
+            h3.text-right Add some positive references, not your mum!
+    hr
+    div.row
+        div.col-sm-2
+        div.col-sm-8
+            form(id="form", name="register-form", method="post", action="/cv/reference")
+                div.form-group
+                    label(for="name") Reference Name
+                    input(type="text", name="name", class="form-control", placeholder="Enter reference name")
+                div.form-group
+                    label(for="contact") Reference Contact
+                    input(type="text", name="contact", class="form-control", placeholder="Enter reference contact details")
+                div.form-group
+                    label(class="btn btn-warning")
+                        input(type="checkbox" name="wait", checked="1", autocomplete="off")
+                        |  &nbsp;Contact after accepting
+                hr
+                div.form-group
+                    label(for="name") Reference Name
+                    input(type="text", name="secondname", class="form-control", placeholder="Enter reference name")
+                div.form-group
+                    label(for="contact") Reference Contact
+                    input(type="text", name="secondcontact", class="form-control", placeholder="Enter reference contact details")
+                div.form-group
+                    label(class="btn btn-warning")
+                        input(type="checkbox" name="secondwait", checked="1", autocomplete="off")
+                        |  &nbsp;Contact after accepting 
+        div.col-sm-2
+    div(class="row continue")
+         .div
+            input(type="submit", value="Finish", class="btn btn-default btn-submit")
+    script(type='text/javascript').
+        $('.continue').click(function(){
+            $('form').submit();
+        });

@@ -1,0 +1,47 @@
+extends ../layout
+
+block content 
+    div.row
+        div.col-sm-12
+            h1.text-right We don't need no Educa...
+            h3.text-right Provide evidence of your educational achievments
+    hr
+    div.row
+        div.col-sm-2
+        div.col-sm-8
+            form(id="form", name="register-form", method="post", action="/cv/qualification")
+                div.form-group
+                    label(for="subject") Subject
+                    input(type="text", name="subject", class="form-control subject", placeholder="Enter the subject")
+                div.form-group
+                    label(for="grade") Grade
+                    input(type="text", name="grade", class="form-control grade", placeholder="Enter the grade or score")
+                    input(type="hidden", name="qualifications", class="form-control qualifications")
+               div.form-group
+                    button(type="button" id="addQualification" data-loading-text="Saving..." class="btn btn-success pull-right" autocomplete="off") Add Qualification
+        div.col-sm-2
+    div(class="row continue")
+         .div
+            input(type="submit", value="Next", class="btn btn-default btn-submit")
+            span(id="stepcounter" class="small") !{step}/5
+    script(type='text/javascript').
+        var qualifications = [];
+        $('#addQualification').click(function(){
+            var $btn = $(this).button('loading')
+
+            qualifications.push({
+                'subject': $('.subject').val(),
+                'grade': $('.grade').val()
+            });
+
+            $('.subject, .grade').val('');
+
+            $('.qualifications').val(JSON.stringify(qualifications));
+
+            $(this).button("reset");
+        });
+
+        $('.continue').click(function(){
+           $('#overlay').modal({backdrop: 'static'});
+           $('#form').submit();
+        });
